@@ -3,9 +3,12 @@ service crond stop
  
 busybox rm -f /etc/ld.so.preload
 busybox rm -f /usr/local/lib/libcset.so
+busybox rm -f /usr/local/lib/libpamcd.so
 chattr -i /etc/ld.so.preload
 busybox rm -f /etc/ld.so.preload
 busybox rm -f /usr/local/lib/libcset.so
+busybox rm -f /usr/local/lib/libpamcd.so
+
  
 # 清理异常进程
 busybox ps -ef | busybox grep -v grep | busybox egrep 'ksoftirqds' | busybox awk '{print $1}' | busybox xargs kill -9
