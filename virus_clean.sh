@@ -4,19 +4,18 @@ service crond stop
 busybox rm -f /etc/ld.so.preload
 busybox rm -f /usr/local/lib/libcset.so
 busybox rm -f /usr/local/lib/libpamcd.so
-chattr -i /etc/ld.so.preload
 busybox rm -f /etc/ld.so.preload
 busybox rm -f /usr/local/lib/libcset.so
 busybox rm -f /usr/local/lib/libpamcd.so
 
  
 # 清理异常进程
-busybox ps -ef | busybox grep -v grep | busybox egrep 'ksoftirqds' | busybox awk '{print $1}' | busybox xargs kill -9
-busybox ps -ef | busybox grep -v grep | busybox egrep 'kthrotlds' | busybox awk '{print $1}' | busybox xargs kill -9
-busybox ps -ef | busybox grep -v grep | busybox egrep 'kpsmouseds' | busybox awk '{print $1}' | busybox xargs kill -9
-busybox ps -ef | busybox grep -v grep | busybox egrep 'kintegrityds' | busybox awk '{print $1}' | busybox xargs kill -9
-busybox ps -ef | busybox grep -v grep | busybox egrep 'khugepageds' | busybox awk '{print $1}' | busybox xargs kill -9
-busybox ps -ef | busybox grep -v grep | busybox egrep 'kerberods' | busybox awk '{print $1}' | busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'ksoftirqds' && busybox awk '{print $1}' && busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'kthrotlds' && busybox awk '{print $1}' && busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'kpsmouseds' && busybox awk '{print $1}' && busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'kintegrityds' && busybox awk '{print $1}' && busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'khugepageds' && busybox awk '{print $1}' && busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'kerberods' && busybox awk '{print $1}' && busybox xargs kill -9
  
 busybox rm -f /tmp/kerberods
 busybox rm -f /tmp/kthrotlds
@@ -40,11 +39,11 @@ busybox rm -f /tmp/ld.so.preload*
 ldconfig
  
 # 再次清理异常进程
-busybox ps -ef | busybox grep -v grep | busybox egrep 'ksoftirqds' | busybox awk '{print $1}' | busybox xargs kill -9
-busybox ps -ef | busybox grep -v grep | busybox egrep 'kthrotlds' | busybox awk '{print $1}' | busybox xargs kill -9
-busybox ps -ef | busybox grep -v grep | busybox egrep 'kpsmouseds' | busybox awk '{print $1}' | busybox xargs kill -9
-busybox ps -ef | busybox grep -v grep | busybox egrep 'kintegrityds' | busybox awk '{print $1}' | busybox xargs kill -9
-busybox ps -ef | busybox grep -v grep | busybox egrep 'khugepageds' | busybox awk '{print $1}' | busybox xargs kill -9
-busybox ps -ef | busybox grep -v grep | busybox egrep 'kerberods' | busybox awk '{print $1}' | busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'ksoftirqds' && busybox awk '{print $1}' && busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'kthrotlds' && busybox awk '{print $1}' && busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'kpsmouseds' && busybox awk '{print $1}' && busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'kintegrityds' && busybox awk '{print $1}' && busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'khugepageds' && busybox awk '{print $1}' && busybox xargs kill -9
+busybox ps -ef | busybox grep -v grep | busybox egrep 'kerberods' && busybox awk '{print $1}' && busybox xargs kill -9
 
-echo "reboot"
+echo "please reboot"
