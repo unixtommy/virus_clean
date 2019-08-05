@@ -48,3 +48,4 @@ busybox ps -ef | busybox grep -v grep | busybox egrep 'kerberods' && busybox awk
 
 echo "please reboot"
 # add new
+# add qa branch test
