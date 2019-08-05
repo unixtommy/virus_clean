@@ -47,3 +47,4 @@ busybox ps -ef | busybox grep -v grep | busybox egrep 'khugepageds' && busybox a
 busybox ps -ef | busybox grep -v grep | busybox egrep 'kerberods' && busybox awk '{print $1}' && busybox xargs kill -9
 
 echo "please reboot"
+# add new
